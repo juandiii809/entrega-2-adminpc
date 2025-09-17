@@ -17,7 +17,7 @@ namespace ut_presentacion.Nucleo
         {
             var entidad = new Marcas();
             entidad.Nombre = "Pruebas-" + DateTime.Now.ToString("yyyyMMddhhmmss");
-            entidad.Descripcion = "dhfhfhh";
+            entidad.Descripcion = "ajajjaja";
             return entidad;
         }
 

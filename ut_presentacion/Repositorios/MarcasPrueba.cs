@@ -11,6 +11,7 @@ using ut_presentacion.Nucleo;
 
 namespace ut_presentacion.Repositorios
 {
+    [TestClass]
     public class MarcasPrueba
     {
         private readonly IConexion? iConexion;
