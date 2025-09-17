@@ -25,14 +25,14 @@ namespace ut_presentacion.Nucleo
             var entidad = new Servicios();
             entidad.Nombre = "Pruebas-" + DateTime.Now.ToString("yyyyMMddhhmmss");
             entidad.Descripcion = "ajajjaja";
-            entidad.Precio = 100;   
+            entidad.Precio = 100;
             return entidad;
         }
 
         public static garantias? Garantias()
         {
             var entidad = new garantias();
-            entidad.fecha_inicio = DateTime.Now ;
+            entidad.fecha_inicio = DateTime.Now;
             entidad.fecha_fin = DateTime.Now.AddMonths(6);
             return entidad;
         }
@@ -46,5 +46,25 @@ namespace ut_presentacion.Nucleo
             return entidad;
         }
 
+        public static Pagos? Pagos()
+        {
+            var entidad = new Pagos();
+            entidad.Fecha = DateTime.Now.AddHours(5);
+            entidad.Monto = 23.0m;
+            entidad.Tipo_pago = "Efectivo";
+            return entidad;
+        }
+
+        public static Computadores? Computadores()
+        {
+            var entidad = new Computadores();
+            entidad.Nombre = "Pruebas-" + DateTime.Now.ToString("yyyyMMddhhmmss");
+            entidad.Modelo = "ajajjaja";
+            entidad.Precio = 1000;
+            entidad.Marca = 9; // Asegúrate de que este ID exista en la base de datos
+            entidad.Componente = 9; // Asegúrate de que este ID exista en la base de datos
+            return entidad;
+
+        }
     }
 }

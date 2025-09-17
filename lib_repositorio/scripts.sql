@@ -122,3 +122,6 @@ create table [Proveedores](
 	[telefono] nvarchar(11) not null,
 	[Producto] int references [Productos]([Id]) not null,
 );
+
+insert into Marcas values ('lenovo','dhehdh');
+insert into Componentes values ('ram', 'hdhhdh');
