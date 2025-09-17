@@ -15,5 +15,6 @@ namespace lib_repositorios.Implementaciones
         }
 
         public DbSet<Componentes>? Componentes { get; set; }
+        public DbSet<Marcas>? Marcas { get; set; }
     }
 }

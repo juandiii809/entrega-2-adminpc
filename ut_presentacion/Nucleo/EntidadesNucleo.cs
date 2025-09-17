@@ -12,5 +12,14 @@ namespace ut_presentacion.Nucleo
 
             return entidad;
         }
+
+        public static Marcas? Marcas()
+        {
+            var entidad = new Marcas();
+            entidad.Nombre = "Pruebas-" + DateTime.Now.ToString("yyyyMMddhhmmss");
+            entidad.Descripcion = "dhfhfhh";
+            return entidad;
+        }
+
     }
 }
