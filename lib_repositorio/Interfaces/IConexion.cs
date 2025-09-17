@@ -10,6 +10,9 @@ namespace lib_repositorios.Interfaces
 
         DbSet<Componentes>? Componentes { get; set; }
         DbSet<Marcas>? Marcas { get; set; }
+        DbSet<Servicios>? Servicios { get; set; }
+        DbSet<garantias>? Garantias { get; set; }
+        DbSet<Puestos>? Puestos { get; set; }
 
         EntityEntry<T> Entry<T>(T entity) where T : class;
         int SaveChanges();
