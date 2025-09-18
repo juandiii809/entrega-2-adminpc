@@ -51,7 +51,7 @@ namespace ut_presentacion.Repositorios
 
         public bool Modificar()
         {
-            this.entidad!.fecha_inicio = DateTime.Now.AddDays(1);
+            this.entidad!.Fecha_inicio = DateTime.Now.AddDays(1);
 
             var entry = this.iConexion!.Entry<garantias>(this.entidad);
             entry.State = EntityState.Modified;
