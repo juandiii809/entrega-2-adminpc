@@ -15,9 +15,9 @@ namespace lib_dominio.Entidades
         public decimal Precio { get; set; }
         public int Marca { get; set; }
         [ForeignKey("Marca")]
-        public Marcas? _Marca { get; set; }
+        public Marcas? _marca { get; set; }
         public int Componente { get; set; }
         [ForeignKey("Componente")]
-        public Componentes? _Componente { get; set; }
+        public Componentes? _componente { get; set; }
     }
 }
