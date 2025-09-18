@@ -118,5 +118,14 @@ namespace ut_presentacion.Nucleo
             entidad.Garantia = 1;
             return entidad;
         }
+        public static Proveedores? Proveedores()
+        {
+            var entidad = new Proveedores();
+            entidad.Nombre = "pruebas";
+            entidad.Correo = "pruebas";
+            entidad.Telefono = "pruebas";
+            entidad.Producto = 1;
+            return entidad;
+        }
     }
 }

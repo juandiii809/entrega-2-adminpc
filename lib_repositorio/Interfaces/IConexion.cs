@@ -20,6 +20,7 @@ namespace lib_repositorios.Interfaces
         DbSet<Facturas>? Facturas { get; set; }
         DbSet<Inventarios>? Inventarios { get; set; }
         DbSet<Productos>? Productos { get; set; }
+        DbSet<Proveedores>? Proveedores { get; set; }
 
         EntityEntry<T> Entry<T>(T entity) where T : class;
         int SaveChanges();
