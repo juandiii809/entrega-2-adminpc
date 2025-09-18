@@ -15,13 +15,11 @@ namespace lib_dominio.Entidades
         public DateTime Fecha { get; set; }
         public decimal Precio { get; set; }
         public int Servicio { get; set; }
-        [ForeignKey("Servicio")]
         public int Cliente { get; set; }
-        [ForeignKey("Cliente")]
         public int Empleado { get; set; }
-        [ForeignKey("Empleado")]
-        public Servicios? _Servicio { get; set; }
-        public Clientes? _cliente { get; set; }
-        public Empleados? _Empleado { get; set; }
+        
+        [ForeignKey("Servicio")] public Servicios? _Servicio { get; set; }
+        [ForeignKey("Cliente")] public Clientes? _cliente { get; set; }
+        [ForeignKey("Empleado")] public Empleados? _Empleado { get; set; }
     }
 }
