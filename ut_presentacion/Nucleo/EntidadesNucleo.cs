@@ -32,8 +32,8 @@ namespace ut_presentacion.Nucleo
         public static garantias? Garantias()
         {
             var entidad = new garantias();
-            entidad.fecha_inicio = DateTime.Now;
-            entidad.fecha_fin = DateTime.Now.AddMonths(6);
+            entidad.Fecha_inicio = DateTime.Now;
+            entidad.Fecha_fin = DateTime.Now.AddMonths(6);
             return entidad;
         }
 
