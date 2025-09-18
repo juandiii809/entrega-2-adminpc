@@ -17,7 +17,7 @@ namespace lib_repositorios.Implementaciones
         public DbSet<Componentes>? Componentes { get; set; }
         public DbSet<Marcas>? Marcas { get; set; }
         public DbSet<Servicios>? Servicios { get; set; }
-        public DbSet<garantias>? Garantias { get; set; }
+        public DbSet<Garantias>? Garantias { get; set; }
         public DbSet<Puestos>? Puestos { get; set; }
         public DbSet<Pagos>? Pagos { get; set; }
         public DbSet<Computadores>? Computadores { get; set; }

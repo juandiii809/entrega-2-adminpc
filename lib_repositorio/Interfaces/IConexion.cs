@@ -11,7 +11,7 @@ namespace lib_repositorios.Interfaces
         DbSet<Componentes>? Componentes { get; set; }
         DbSet<Marcas>? Marcas { get; set; }
         DbSet<Servicios>? Servicios { get; set; }
-        DbSet<garantias>? Garantias { get; set; }
+        DbSet<Garantias>? Garantias { get; set; }
         DbSet<Puestos>? Puestos { get; set; }
         DbSet<Pagos>? Pagos { get; set; }
         DbSet<Computadores>? Computadores { get; set; }
