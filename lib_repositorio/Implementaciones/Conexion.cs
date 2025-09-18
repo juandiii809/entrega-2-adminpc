@@ -26,5 +26,8 @@ namespace lib_repositorios.Implementaciones
         public DbSet<Facturas>? Facturas { get; set; }
         public DbSet<Inventarios>? Inventarios { get; set; }
         public DbSet<Productos>? Productos { get; set; }
+        public DbSet<Proveedores>? Proveedores { get; set; }
+        public DbSet<Orden_productos>? Orden_productos { get; set; }
+        public DbSet<Orden_servicios>? Orden_servicios { get; set; }
     }
 }

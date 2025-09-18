@@ -13,10 +13,9 @@ namespace lib_dominio.Entidades
         [Key]public int Id { get; set; }
         public int Cantidad { get; set; }
         public int Producto { get; set; }
-        [ForeignKey("Producto")]
         public int Orden { get; set; }
-        [ForeignKey("Orden")]
-        public Productos? _Producto { get; set; }
-        public Orden_servicios? _Orden_servicios { get; set; }
+        
+        [ForeignKey("Producto")] public Productos? _Producto { get; set; }
+        [ForeignKey("Orden")] public Orden_servicios? _Orden_servicios { get; set; }
     }
 }

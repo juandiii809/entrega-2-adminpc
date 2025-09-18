@@ -122,78 +122,116 @@ create table [Proveedores](
 	[Producto] int references [Productos]([Id]) not null,
 );
 
-insert into [Marcas] (Nombre, Descripcion) values
-('Dell', 'Computadores de oficina y servidores'),
-('HP', 'Equipos de gama media y alta'),
-('Lenovo', 'Computadores de uso empresarial y gaming');
+INSERT INTO Componentes (Nombre, Descripcion) VALUES
+('RAM 8GB', 'Memoria DDR4 8GB'),
+('SSD 256GB', 'Unidad estado sólido'),
+('Fuente 500W', 'Fuente de poder genérica'),
+('Placa Base A320', 'Motherboard básica'),
+('Tarjeta Gráfica GTX1050', 'GPU Nvidia GTX 1050');
 
-insert into [Componentes] (Nombre, Descripcion) values
-('Procesador', 'Intel Core i7'),
-('Memoria RAM', 'DDR4 16GB'),
-('Tarjeta Gráfica', 'NVIDIA RTX 3060'),
-('Disco Duro', 'SSD 512GB');
+INSERT INTO Garantias (Fecha_inicio, Fecha_fin) VALUES
+(GETDATE(), DATEADD(year, 1, GETDATE())),
+(GETDATE(), DATEADD(year, 2, GETDATE())),
+(GETDATE(), DATEADD(month, 6, GETDATE())),
+(GETDATE(), DATEADD(year, 3, GETDATE())),
+(GETDATE(), DATEADD(day, 90, GETDATE()));
 
-insert into [Garantias] (Fecha_inicio, Fecha_fin) values
-(getdate(), dateadd(year, 1, getdate())),
-(getdate(), dateadd(year, 2, getdate())),
-(getdate(), dateadd(month, 6, getdate()));
+INSERT INTO Marcas (Nombre, Descripcion) VALUES
+('Lenovo', 'Fabricante de computadores'),
+('HP', 'Hewlett Packard'),
+('Dell', 'Dell Computers'),
+('Asus', 'AsusTek'),
+('Acer', 'Acer Inc.');
 
-insert into [Puestos] (Nombre, Descripcion, Salario) values
-('Técnico', 'Encargado de reparaciones', 1800000),
-('Vendedor', 'Encargado de ventas de equipos', 1500000),
-('Gerente', 'Encargado de la gestión administrativa', 3000000);
+INSERT INTO Puestos (Nombre, Descripcion, Salario) VALUES
+('Técnico', 'Soporte técnico de PCs', 1200),
+('Vendedor', 'Atención al cliente', 1000),
+('Administrador', 'Encargado de tienda', 2000),
+('Mensajero', 'Entrega de productos', 900),
+('Gerente', 'Dirección general', 3000);
 
-insert into [Empleados] (Nombre, Apellido, Cedula, Correo, Puesto) values
-('Carlos', 'Pérez', '100000001', 'carlos.perez@adminpc.com', 1),
-('Laura', 'Gómez', '100000002', 'laura.gomez@adminpc.com', 2),
-('Andrés', 'Ramírez', '100000003', 'andres.ramirez@adminpc.com', 3);
+INSERT INTO Servicios (Nombre, Descripcion, Precio) VALUES
+('Mantenimiento', 'Limpieza y diagnóstico', 50),
+('Reparación', 'Reemplazo de componentes', 100),
+('Instalación SO', 'Instalación de Windows/Linux', 80),
+('Optimización', 'Mejora de rendimiento', 40),
+('Backup', 'Copia de seguridad', 30);
 
-insert into [Computadores] (Nombre, Modelo, Precio, Marca, Componente) values
-('Dell Inspiron', 'Inspiron 3501', 2800000, 1, 1),
-('HP Pavilion', 'Pavilion Gaming 15', 4200000, 2, 2),
-('Lenovo ThinkPad', 'ThinkPad T14', 3800000, 3, 3);
+INSERT INTO Pagos (Fecha, Monto, Tipo_pago) VALUES
+(GETDATE(), 500, 'Efectivo'),
+(GETDATE(), 1200, 'Tarjeta crédito'),
+(GETDATE(), 800, 'Transferencia'),
+(GETDATE(), 300, 'Efectivo'),
+(GETDATE(), 1000, 'Tarjeta débito');
 
-insert into [Clientes] (Nombre, Apellido, Cedula, Correo, Computador) values
-('Sofía', 'Martínez', '200000001', 'sofia.martinez@mail.com', 1),
-('Juan', 'Torres', '200000002', 'juan.torres@mail.com', 2),
-('Camila', 'López', '200000003', 'camila.lopez@mail.com', 3);
+INSERT INTO Computadores (Nombre, Modelo, Precio, marca, componente) VALUES
+('ThinkPad', 'T14', 1200, 1, 1),
+('Pavilion', '15-ec', 1000, 2, 2),
+('Inspiron', '3505', 900, 3, 3),
+('VivoBook', 'X515', 1100, 4, 4),
+('Aspire', 'A315', 850, 5, 5);
 
-insert into [Servicios] (Nombre, Descripcion, Precio) values
-('Mantenimiento', 'Limpieza y optimización de hardware', 100000),
-('Instalación de software', 'Instalación de programas y drivers', 150000),
-('Reparación', 'Reemplazo de piezas dañadas', 200000);
+-- 8. Clientes (requiere Computadores)
+INSERT INTO Clientes (Nombre, Apellido, Cedula, Correo, computador) VALUES
+('Juan', 'Pérez', '1002003001', 'juan@example.com', 1),
+('Ana', 'Gómez', '1002003002', 'ana@example.com', 2),
+('Luis', 'Martínez', '1002003003', 'luis@example.com', 3),
+('Carla', 'López', '1002003004', 'carla@example.com', 4),
+('Pedro', 'Ramírez', '1002003005', 'pedro@example.com', 5);
 
-insert into [Orden_servicios] (Estado, Fecha, Precio, Servicio, Cliente, Empleado) values
-(1, getdate(), 250000, 1, 1, 1),
-(0, getdate(), 200000, 2, 2, 2),
-(1, getdate(), 300000, 3, 3, 3);
+INSERT INTO Empleados (Nombre, Apellido, Cedula, Correo, puesto) VALUES
+('Mario', 'Torres', '2003004001', 'mario@example.com', 1),
+('Lucía', 'Ríos', '2003004002', 'lucia@example.com', 2),
+('Carlos', 'Vega', '2003004003', 'carlos@example.com', 3),
+('Fernanda', 'Quintero', '2003004004', 'fernanda@example.com', 4),
+('Andrés', 'Moreno', '2003004005', 'andres@example.com', 5);
 
-insert into [Productos] (Nombre, Descripcion, Garantia) values
-('Teclado mecánico', 'Teclado mecánico retroiluminado', 1),
-('Mouse inalámbrico', 'Mouse inalámbrico recargable', 2),
-('Monitor 24"', 'Monitor Full HD 24 pulgadas', 3);
+INSERT INTO Productos (Nombre, Descripcion, garantia) VALUES
+('Mouse', 'Mouse óptico inalámbrico', 1),
+('Teclado', 'Teclado mecánico retroiluminado', 2),
+('Monitor', 'Monitor LED 24 pulgadas', 3),
+('Impresora', 'Impresora multifuncional', 4),
+('Parlantes', 'Parlantes estéreo 2.0', 5);
 
-insert into [Pagos] (Fecha, Monto, Tipo_pago) values
-(getdate(), 1100000, 'Tarjeta de crédito'),
-(getdate(), 300000, 'Efectivo'),
-(getdate(), 50000, 'Transferencia');
+INSERT INTO Inventarios (Descripcion, Piezas_disponibles, producto) VALUES
+('Inventario Mouse', 50, 1),
+('Inventario Teclado', 30, 2),
+('Inventario Monitor', 20, 3),
+('Inventario Impresora', 10, 4),
+('Inventario Parlantes', 25, 5);
 
-insert into [Facturas] (Fecha, Descripcion, Valor_total, Pago, Garantia, Orden) values
-(getdate(), 'Factura de mantenimiento y productos', 1250000, 1, 1, 1),
-(getdate(), 'Factura de instalación de software', 300000, 2, 2, 2),
-(getdate(), 'Factura de reparación y accesorios', 350000, 3, 3, 3);
+INSERT INTO Orden_servicios (Estado, Fecha, Precio, servicio, cliente, empleado) VALUES
+(1, GETDATE(), 60, 1, 1, 1),
+(0, GETDATE(), 120, 2, 2, 2),
+(1, GETDATE(), 90, 3, 3, 3),
+(1, GETDATE(), 40, 4, 4, 4),
+(0, GETDATE(), 35, 5, 5, 5);
 
-insert into [Inventarios] (Descripcion, Piezas_disponibles, Producto) values
-('Inventario de teclados mecánicos', 15, 1),
-('Inventario de mouse inalámbricos', 25, 2),
-('Inventario de monitores 24"', 10, 3);
+INSERT INTO Orden_productos (Cantidad, Producto, orden) VALUES
+(2, 1, 1),
+(1, 2, 2),
+(3, 3, 3),
+(1, 4, 4),
+(5, 5, 5);
 
-insert into [Orden_productos] (Cantidad, Producto, Orden) values
-(2, 1, 1), -- 2 teclados en orden 1
-(1, 2, 2), -- 1 mouse en orden 2
-(1, 3, 3); -- 1 monitor en orden 3
+INSERT INTO Facturas (Fecha, Descripcion, Valor_total, pago, garantia, orden) VALUES
+(GETDATE(), 'Factura mantenimiento', 500, 1, 1, 1),
+(GETDATE(), 'Factura reparación', 1200, 2, 2, 2),
+(GETDATE(), 'Factura instalación SO', 800, 3, 3, 3),
+(GETDATE(), 'Factura optimización', 300, 4, 4, 4),
+(GETDATE(), 'Factura backup', 1000, 5, 5, 5);
 
+<<<<<<< HEAD
 insert into [Proveedores] (Nombre, Correo, Telefono, Producto) values
 ('TechSupply', 'ventas@techsupply.com', '3001234567', 1),
 ('DistribuidoraPC', 'contacto@distribuidorapc.com', '3017654321', 2),
 ('ElectroMayoristas', 'ventas@electromayoristas}.com', '3029876543', 3);
+=======
+
+INSERT INTO Proveedores (Nombre, correo, telefono, Producto) VALUES
+('Proveedor1', 'prov1@example.com', '3001234567', 1),
+('Proveedor2', 'prov2@example.com', '3002345678', 2),
+('Proveedor3', 'prov3@example.com', '3003456789', 3),
+('Proveedor4', 'prov4@example.com', '3004567890', 4),
+('Proveedor5', 'prov5@example.com', '3005678901', 5);
+>>>>>>> 9d886515beced5b14b48bc25e6f5f4cfa28121ee

@@ -96,8 +96,8 @@ namespace ut_presentacion.Nucleo
             entidad.Descripcion = "pruebas";
             entidad.Valor_total = 1000000m;
             entidad.Pago = 1;
-            entidad.Garantia = 1;
-            entidad.Orden = 1;
+            entidad.Garantia = 2;
+            entidad.Orden = 3;
             return entidad;
         }
 
@@ -116,6 +116,35 @@ namespace ut_presentacion.Nucleo
             entidad.Nombre = "pruebas";
             entidad.Descripcion = "pruebas";
             entidad.Garantia = 1;
+            return entidad;
+        }
+        public static Proveedores? Proveedores()
+        {
+            var entidad = new Proveedores();
+            entidad.Nombre = "pruebas";
+            entidad.Correo = "pruebas";
+            entidad.Telefono = "pruebas";
+            entidad.Producto = 1;
+            return entidad;
+        }
+
+        public  static Orden_productos? Orden_productos()
+        {
+            var entidad = new Orden_productos();
+            entidad.Cantidad = 10;
+            entidad.Producto = 1;
+            entidad.Orden = 2;
+            return entidad;
+        }
+        public static Orden_servicios? Orden_servicios()
+        {
+            var entidad = new Orden_servicios();
+            entidad.Estado = true;
+            entidad.Fecha = DateTime.Now;
+            entidad.Precio = 1000; 
+            entidad.Empleado = 1;
+            entidad.Servicio = 3;
+            entidad.Cliente = 2;
             return entidad;
         }
     }
