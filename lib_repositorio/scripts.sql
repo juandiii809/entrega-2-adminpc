@@ -1,5 +1,4 @@
-﻿create database adminpc;
-go 
+﻿
 use adminpc;
 go 
 
@@ -222,6 +221,12 @@ INSERT INTO Facturas (Fecha, Descripcion, Valor_total, pago, garantia, orden) VA
 (GETDATE(), 'Factura optimización', 300, 4, 4, 4),
 (GETDATE(), 'Factura backup', 1000, 5, 5, 5);
 
+<<<<<<< HEAD
+insert into [Proveedores] (Nombre, Correo, Telefono, Producto) values
+('TechSupply', 'ventas@techsupply.com', '3001234567', 1),
+('DistribuidoraPC', 'contacto@distribuidorapc.com', '3017654321', 2),
+('ElectroMayoristas', 'ventas@electromayoristas}.com', '3029876543', 3);
+=======
 
 INSERT INTO Proveedores (Nombre, correo, telefono, Producto) VALUES
 ('Proveedor1', 'prov1@example.com', '3001234567', 1),
@@ -229,3 +234,4 @@ INSERT INTO Proveedores (Nombre, correo, telefono, Producto) VALUES
 ('Proveedor3', 'prov3@example.com', '3003456789', 3),
 ('Proveedor4', 'prov4@example.com', '3004567890', 4),
 ('Proveedor5', 'prov5@example.com', '3005678901', 5);
+>>>>>>> 9d886515beced5b14b48bc25e6f5f4cfa28121ee
