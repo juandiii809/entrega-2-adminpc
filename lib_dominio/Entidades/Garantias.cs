@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lib_dominio.Entidades
 {
-    public class garantias
+    public class Garantias
     {
        [Key]public int Id { get; set; }
        public DateTime Fecha_inicio { get; set; } 
