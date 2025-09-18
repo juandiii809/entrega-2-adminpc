@@ -61,8 +61,8 @@ namespace ut_presentacion.Nucleo
             entidad.Nombre = "Pruebas-" + DateTime.Now.ToString("yyyyMMddhhmmss");
             entidad.Modelo = "ajajjaja";
             entidad.Precio = 1000;
-            entidad.Marca = 9; // Asegúrate de que este ID exista en la base de datos
-            entidad.Componente = 9; // Asegúrate de que este ID exista en la base de datos
+            entidad.Marca = 1; // Asegúrate de que este ID exista en la base de datos
+            entidad.Componente = 1; // Asegúrate de que este ID exista en la base de datos
             return entidad;
 
         }
