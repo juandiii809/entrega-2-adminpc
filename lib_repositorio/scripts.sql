@@ -1,5 +1,4 @@
-﻿create database adminpc;
-go 
+﻿
 use adminpc;
 go 
 
@@ -197,4 +196,4 @@ insert into [Orden_productos] (Cantidad, Producto, Orden) values
 insert into [Proveedores] (Nombre, Correo, Telefono, Producto) values
 ('TechSupply', 'ventas@techsupply.com', '3001234567', 1),
 ('DistribuidoraPC', 'contacto@distribuidorapc.com', '3017654321', 2),
-('ElectroMayoristas', 'ventas@electromayoristas.com', '3029876543', 3);
+('ElectroMayoristas', 'ventas@electromayoristas}.com', '3029876543', 3);
