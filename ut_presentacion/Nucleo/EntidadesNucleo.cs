@@ -66,5 +66,16 @@ namespace ut_presentacion.Nucleo
             return entidad;
 
         }
+
+        public static Clientes? Clientes() { 
+            var entidad = new Clientes();
+            
+            entidad.Nombre = "joel" + DateTime.Now.ToString("yyyyMMddhhmmss"); ;
+            entidad.Cedula = "1000";
+            entidad.Apellido = "perez";
+            entidad.Correo = "jel@gamil.com";
+            entidad.Computador = 1; //crea este ID
+            return entidad;
+        }
     }
 }

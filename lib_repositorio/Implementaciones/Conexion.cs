@@ -21,5 +21,6 @@ namespace lib_repositorios.Implementaciones
         public DbSet<Puestos>? Puestos { get; set; }
         public DbSet<Pagos>? Pagos { get; set; }
         public DbSet<Computadores>? Computadores { get; set; }
+        public DbSet<Clientes>? Clientes { get; set; }
     }
 }
