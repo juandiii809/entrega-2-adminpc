@@ -29,9 +29,9 @@ namespace ut_presentacion.Nucleo
             return entidad;
         }
 
-        public static garantias? Garantias()
+        public static Garantias? Garantias()
         {
-            var entidad = new garantias();
+            var entidad = new Garantias();
             entidad.Fecha_inicio = DateTime.Now;
             entidad.Fecha_fin = DateTime.Now.AddMonths(6);
             return entidad;
@@ -61,20 +61,61 @@ namespace ut_presentacion.Nucleo
             entidad.Nombre = "Pruebas-" + DateTime.Now.ToString("yyyyMMddhhmmss");
             entidad.Modelo = "ajajjaja";
             entidad.Precio = 1000;
-            entidad.Marca = 1; // Asegúrate de que este ID exista en la base de datos
-            entidad.Componente = 1; // Asegúrate de que este ID exista en la base de datos
+            entidad.Marca = 2; // Asegúrate de que este ID exista en la base de datos
+            entidad.Componente = 3; // Asegúrate de que este ID exista en la base de datos
             return entidad;
 
         }
 
-        public static Clientes? Clientes() { 
+        public static Clientes? Clientes()
+        {
             var entidad = new Clientes();
-            
-            entidad.Nombre = "joel" + DateTime.Now.ToString("yyyyMMddhhmmss"); ;
-            entidad.Cedula = "1000";
-            entidad.Apellido = "perez";
-            entidad.Correo = "jel@gamil.com";
-            entidad.Computador = 1; //crea este ID
+            entidad.Nombre = "Pruebas-" + DateTime.Now.ToString("yyyyMMddhhmmss");
+            entidad.Apellido = "ajajajaja";
+            entidad.Cedula = "szs";
+            entidad.Correo = "sisi";
+            entidad.Computador = 1;
+            return entidad;
+        }
+
+        public static Empleados? Empleados()
+        {
+            var entidad = new Empleados();
+            entidad.Nombre = "Pruebas-" + DateTime.Now.ToString("yyyyMMddhhmmss");
+            entidad.Apellido = "ajajajaja";
+            entidad.Cedula = "szs";
+            entidad.Correo = "sisi";
+            entidad.Puesto = 1;
+            return entidad;
+        }
+
+        public static Facturas? Facturas()
+        {
+            var entidad = new Facturas();
+            entidad.Fecha = DateTime.Now;
+            entidad.Descripcion = "pruebas";
+            entidad.Valor_total = 1000000m;
+            entidad.Pago = 1;
+            entidad.Garantia = 1;
+            entidad.Orden = 1;
+            return entidad;
+        }
+
+        public static Inventarios? Inventarios()
+        {
+            var entidad = new Inventarios();
+            entidad.Descripcion = "pruebas";
+            entidad.Piezas_Disponibles = 50;
+            entidad.Producto = 1;
+            return entidad;
+        }
+
+        public static Productos? Productos()
+        {
+            var entidad = new Productos();
+            entidad.Nombre = "pruebas";
+            entidad.Descripcion = "pruebas";
+            entidad.Garantia = 1;
             return entidad;
         }
     }

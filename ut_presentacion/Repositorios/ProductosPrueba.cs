@@ -12,13 +12,13 @@ using ut_presentacion.Nucleo;
 namespace ut_presentacion.Repositorios
 {
     [TestClass]
-    public class ClientesPrueba
+    public class ProductosPrueba
     {
         private readonly IConexion? iConexion;
-        private List<Clientes>? lista;
-        private Clientes? entidad;
+        private List<Productos>? lista;
+        private Productos? entidad;
 
-        public ClientesPrueba()
+        public ProductosPrueba()
         {
             iConexion = new Conexion();
             iConexion.StringConexion = Configuracion.ObtenerValor("StringConexion");
@@ -35,15 +35,15 @@ namespace ut_presentacion.Repositorios
 
         public bool Listar()
         {
-            this.lista = this.iConexion!.Clientes!.ToList();
+            this.lista = this.iConexion!.Productos!.ToList();
             return lista.Count > 0;
         }
 
         public bool Guardar()
         {
-            this.entidad = EntidadesNucleo.Clientes()!;
+            this.entidad = EntidadesNucleo.Productos()!;
 
-            this.iConexion!.Clientes!.Add(this.entidad);
+            this.iConexion!.Productos!.Add(this.entidad);
             this.iConexion!.SaveChanges();
 
             return true;
@@ -53,7 +53,7 @@ namespace ut_presentacion.Repositorios
         {
             this.entidad!.Nombre = "Test";
 
-            var entry = this.iConexion!.Entry<Clientes>(this.entidad);
+            var entry = this.iConexion!.Entry<Productos>(this.entidad);
             entry.State = EntityState.Modified;
             this.iConexion!.SaveChanges();
 
@@ -62,7 +62,7 @@ namespace ut_presentacion.Repositorios
 
         public bool Borrar()
         {
-            this.iConexion!.Clientes!.Remove(this.entidad!);
+            this.iConexion!.Productos!.Remove(this.entidad!);
             this.iConexion!.SaveChanges();
             return true;
         }

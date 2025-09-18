@@ -12,13 +12,13 @@ using ut_presentacion.Nucleo;
 namespace ut_presentacion.Repositorios
 {
     [TestClass]
-    public class garantiasPrueba
+    public class GarantiasPrueba
     {
         private readonly IConexion? iConexion;
         private List<Garantias>? lista;
         private Garantias? entidad;
 
-        public  garantiasPrueba()
+        public  GarantiasPrueba()
         {
             iConexion = new Conexion();
             iConexion.StringConexion = Configuracion.ObtenerValor("StringConexion");

@@ -7,7 +7,7 @@ namespace lib_repositorios.Implementaciones
     public class Conexion : DbContext, IConexion
     {
         public string? StringConexion { get; set; }
-        
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(this.StringConexion!, p => { });
@@ -22,5 +22,9 @@ namespace lib_repositorios.Implementaciones
         public DbSet<Pagos>? Pagos { get; set; }
         public DbSet<Computadores>? Computadores { get; set; }
         public DbSet<Clientes>? Clientes { get; set; }
+        public DbSet<Empleados>? Empleados { get; set; }
+        public DbSet<Facturas>? Facturas { get; set; }
+        public DbSet<Inventarios>? Inventarios { get; set; }
+        public DbSet<Productos>? Productos { get; set; }
     }
 }
