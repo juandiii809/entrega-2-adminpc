@@ -134,6 +134,11 @@ insert into [Componentes] (Nombre, Descripcion) values
 ('Tarjeta Gráfica', 'NVIDIA RTX 3060'),
 ('Disco Duro', 'SSD 512GB');
 
+insert into [Garantias] (Fecha_inicio, Fecha_fin) values
+(getdate(), dateadd(year, 1, getdate())),
+(getdate(), dateadd(year, 2, getdate())),
+(getdate(), dateadd(month, 6, getdate()));
+
 insert into [Puestos] (Nombre, Descripcion, Salario) values
 ('Técnico', 'Encargado de reparaciones', 1800000),
 ('Vendedor', 'Encargado de ventas de equipos', 1500000),

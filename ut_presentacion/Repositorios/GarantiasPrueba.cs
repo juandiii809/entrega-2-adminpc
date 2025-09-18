@@ -12,13 +12,13 @@ using ut_presentacion.Nucleo;
 namespace ut_presentacion.Repositorios
 {
     [TestClass]
-    public class garantiasPrueba
+    public class GarantiasPrueba
     {
         private readonly IConexion? iConexion;
-        private List<garantias>? lista;
-        private garantias? entidad;
+        private List<Garantias>? lista;
+        private Garantias? entidad;
 
-        public  garantiasPrueba()
+        public  GarantiasPrueba()
         {
             iConexion = new Conexion();
             iConexion.StringConexion = Configuracion.ObtenerValor("StringConexion");
@@ -53,7 +53,7 @@ namespace ut_presentacion.Repositorios
         {
             this.entidad!.Fecha_inicio = DateTime.Now.AddDays(1);
 
-            var entry = this.iConexion!.Entry<garantias>(this.entidad);
+            var entry = this.iConexion!.Entry<Garantias>(this.entidad);
             entry.State = EntityState.Modified;
             this.iConexion!.SaveChanges();
 
