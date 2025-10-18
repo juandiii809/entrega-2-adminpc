@@ -1,4 +1,5 @@
-﻿
+create database adminpc
+go
 use adminpc;
 go 
 
