@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lib_presentacion.interfaces
 {
-    public interface InventariosPresentacion
+    public interface IInventariosPresentacion
     {
         Task<List<Inventarios>> Listar();
         Task<List<Inventarios>> PorTipo(Inventarios? entidad);

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lib_presentacion.interfaces
 {
-    public interface EmpleadosPresentacion
+    public interface IEmpleadosPresentacion
     {
         Task<List<Empleados>> Listar();
         Task<List<Empleados>> PorTipo(Empleados? entidad);

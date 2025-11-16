@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lib_presentacion.interfaces
 {
-    public interface FacturasPresentacion
+    public interface IFacturasPresentacion
     {
         Task<List<Facturas>> Listar();
         Task<List<Facturas>> PorTipo(Facturas? entidad);

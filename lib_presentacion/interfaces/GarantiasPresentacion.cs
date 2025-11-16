@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lib_presentacion.interfaces
 {
-    public interface GarantiasPresentacion
+    public interface IGarantiasPresentacion
     {
         Task<List<Garantias>> Listar();
         Task<List<Garantias>> PorTipo(Garantias? entidad);

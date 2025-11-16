@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lib_presentacion.interfaces
 {
-    public interface ComponentesPresentacion
+    public interface IComponentesPresentacion
     {
         Task<List<Componentes>> Listar();
         Task<List<Componentes>> PorTipo(Componentes? entidad);
