@@ -1,30 +1,26 @@
-﻿using lib_dominio.Entidades;
+﻿using asp_servicios.Nucleo;
+using lib_dominio.Entidades;
 using lib_dominio.Nucleo;
 using lib_repositorio.Implementaciones;
+using lib_repositorio.Interfaces;
 using lib_repositorios.Implementaciones;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.Metrics;
 
 namespace asp_servicios.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class Orden_serviciosController : ControllerBase
     {
-        [HttpPost]
-        public IEnumerable<Orden_servicios> Get()
-        {
-            var conexion = new Conexion();
-            conexion.StringConexion = "server=localhost\\DEV;database=trabajo;Integrated Security=True;TrustServerCertificate=true;";
-            conexion.Database.Migrate();
-            return new List<Orden_servicios>();
-        }
+        private IOrden_serviciosAplicacion? iAplicacion = null;
+        private TokenAplicacion? iAplicacionToken = null;
 
-        private Orden_serviciosAplicacion? iAplicacion;
-        public Orden_serviciosController(Orden_serviciosAplicacion? iAplicacion/*, TokenController tokenController*/)
+        public Orden_serviciosController(IOrden_serviciosAplicacion? iAplicacion, TokenAplicacion iAplicacionToken)
         {
             this.iAplicacion = iAplicacion;
-            //this.tokenController = tokenController;
+            this.iAplicacionToken = iAplicacionToken;
         }
 
         private Dictionary<string, object> ObtenerDatos()
@@ -35,20 +31,19 @@ namespace asp_servicios.Controllers
             return JsonConversor.ConvertirAObjeto(datos);
         }
 
-        [HttpPost("Listar")]
+        [HttpPost]
         public string Listar()
         {
             var respuesta = new Dictionary<string, object>();
             try
             {
                 var datos = ObtenerDatos();
-                /*if (!tokenController!.Validate(datos))
+                if (!iAplicacionToken!.Validar(datos))
                 {
                     respuesta["Error"] = "lbNoAutenticacion";
                     return JsonConversor.ConvertirAString(respuesta);
-                }*/
-                string conexionstring = "server=localhost\\DEV;database=trabajo;Integrated Security=True;TrustServerCertificate=true;";
-                this.iAplicacion!.Configurar(conexionstring);
+                }
+                this.iAplicacion!.Configurar(Configuracion.ObtenerValor("StringConexion"));
 
                 respuesta["Entidades"] = this.iAplicacion!.Listar();
                 respuesta["Respuesta"] = "OK";
@@ -64,22 +59,22 @@ namespace asp_servicios.Controllers
         }
 
 
-        [HttpPost("Guardar")]
+
+        [HttpPost]
         public string Guardar()
         {
             var respuesta = new Dictionary<string, object>();
             try
             {
                 var datos = ObtenerDatos();
-                /*if (!tokenController!.Validate(datos))
+                if (!iAplicacionToken!.Validar(datos))
                 {
                     respuesta["Error"] = "lbNoAutenticacion";
                     return JsonConversor.ConvertirAString(respuesta);
-                }*/
+                }
                 var entidad = JsonConversor.ConvertirAObjeto<Orden_servicios>(
-                JsonConversor.ConvertirAString(datos["Entidad"]));
-                string conexionstring = "server=localhost\\DEV;database=trabajo;Integrated Security=True;TrustServerCertificate=true;";
-                this.iAplicacion!.Configurar(conexionstring);
+                    JsonConversor.ConvertirAString(datos["Entidad"]));
+                this.iAplicacion!.Configurar(Configuracion.ObtenerValor("StringConexion"));
 
                 entidad = this.iAplicacion!.Guardar(entidad);
                 respuesta["Entidad"] = entidad!;
@@ -95,22 +90,21 @@ namespace asp_servicios.Controllers
             }
         }
 
-        [HttpPost("Modificar")]
+        [HttpPost]
         public string Modificar()
         {
             var respuesta = new Dictionary<string, object>();
             try
             {
                 var datos = ObtenerDatos();
-                /*if (!tokenController!.Validate(datos))
+                if (!iAplicacionToken!.Validar(datos))
                 {
                     respuesta["Error"] = "lbNoAutenticacion";
                     return JsonConversor.ConvertirAString(respuesta);
-                }*/
+                }
                 var entidad = JsonConversor.ConvertirAObjeto<Orden_servicios>(
-                JsonConversor.ConvertirAString(datos["Entidad"]));
-                string conexionstring = "server=localhost\\DEV;database=trabajo;Integrated Security=True;TrustServerCertificate=true;";
-                this.iAplicacion!.Configurar(conexionstring);
+                    JsonConversor.ConvertirAString(datos["Entidad"]));
+                this.iAplicacion!.Configurar(Configuracion.ObtenerValor("StringConexion"));
 
                 entidad = this.iAplicacion!.Modificar(entidad);
                 respuesta["Entidad"] = entidad!;
@@ -126,22 +120,21 @@ namespace asp_servicios.Controllers
             }
         }
 
-        [HttpPost("Borrar")]
+        [HttpPost]
         public string Borrar()
         {
             var respuesta = new Dictionary<string, object>();
             try
             {
                 var datos = ObtenerDatos();
-                /*if (!tokenController!.Validate(datos))
+                if (!iAplicacionToken!.Validar(datos))
                 {
                     respuesta["Error"] = "lbNoAutenticacion";
                     return JsonConversor.ConvertirAString(respuesta);
-                }*/
+                }
                 var entidad = JsonConversor.ConvertirAObjeto<Orden_servicios>(
-                JsonConversor.ConvertirAString(datos["Entidad"]));
-                string conexionstring = "server=localhost\\DEV;database=trabajo;Integrated Security=True;TrustServerCertificate=true;";
-                this.iAplicacion!.Configurar(conexionstring);
+                    JsonConversor.ConvertirAString(datos["Entidad"]));
+                this.iAplicacion!.Configurar(Configuracion.ObtenerValor("StringConexion"));
 
 
                 entidad = this.iAplicacion!.Borrar(entidad);
@@ -157,6 +150,5 @@ namespace asp_servicios.Controllers
                 return JsonConversor.ConvertirAString(respuesta);
             }
         }
-
     }
 }

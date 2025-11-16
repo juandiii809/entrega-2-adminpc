@@ -1,4 +1,5 @@
-﻿using lib_repositorio.Implementaciones;
+﻿using asp_servicios.Controllers;
+using lib_repositorio.Implementaciones;
 using lib_repositorio.Interfaces;
 using lib_repositorios.Implementaciones;
 using lib_repositorios.Interfaces;
@@ -42,7 +43,9 @@ namespace asp_servicios
             services.AddScoped<IProveedoresAplicacion, ProveedoresAplicacion>();
             services.AddScoped<IPuestosAplicacion, PuestosAplicacion>();
             services.AddScoped<IServiciosAplicacion, ServiciosAplicacion>();
+            services.AddScoped<TokenAplicacion, TokenAplicacion>();
             // Controladores
+            services.AddScoped<TokenController, TokenController>();
             //services.AddScoped<TokenController, TokenController>();
             services.AddCors(o => o.AddDefaultPolicy(b => b.AllowAnyOrigin()));
         }

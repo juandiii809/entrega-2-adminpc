@@ -3,6 +3,12 @@ go
 use adminpc;
 go 
 
+create table Usuario(
+	Id int primary key identity(1,1),
+	Nombre nvarchar(100),
+	Contraseña nvarchar(100),
+);
+
 create table [Componentes](
 	[Id] int not null identity(1,1) primary key,
 	[Nombre] nvarchar(30) not null,
@@ -235,4 +241,7 @@ INSERT INTO Proveedores (Nombre, correo, telefono, Producto) VALUES
 ('Proveedor3', 'prov3@example.com', '3003456789', 3),
 ('Proveedor4', 'prov4@example.com', '3004567890', 4),
 ('Proveedor5', 'prov5@example.com', '3005678901', 5);
+
+insert into Usuario values('Juan', 'hola1234')
+select * from Usuario
 

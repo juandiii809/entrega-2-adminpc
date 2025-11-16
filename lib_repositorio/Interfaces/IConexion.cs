@@ -8,6 +8,7 @@ namespace lib_repositorios.Interfaces
     {
         string? StringConexion { get; set; }
 
+        DbSet<Usuario>? Usuario { get; set; }
         DbSet<Componentes>? Componentes { get; set; }
         DbSet<Marcas>? Marcas { get; set; }
         DbSet<Servicios>? Servicios { get; set; }
