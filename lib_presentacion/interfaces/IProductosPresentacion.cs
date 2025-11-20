@@ -10,7 +10,7 @@ namespace lib_presentacion.interfaces
     public interface IProductosPresentacion
     {
         Task<List<Productos>> Listar();
-        Task<List<Productos>> PorTipo(Productos? entidad);
+        Task<List<Productos>> PorNombre(Productos? entidad);
         Task<Productos?> Guardar(Productos? entidad);
         Task<Productos?> Modificar(Productos? entidad);
         Task<Productos?> Borrar(Productos? entidad);

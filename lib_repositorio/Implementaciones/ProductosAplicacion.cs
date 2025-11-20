@@ -4,6 +4,7 @@ using lib_repositorios.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,6 +65,14 @@ namespace lib_repositorio.Implementaciones
             entry.State = EntityState.Modified;
             this.IConexion.SaveChanges();
             return entidad;
+        }
+
+        public List<Productos> PorNombre(Productos? entidad)
+        {
+            return this.IConexion!.Productos!
+                .Where(x => x.Nombre!.Contains(entidad!.Nombre!))
+                .Take(50)
+                .ToList();
         }
     }
 }
