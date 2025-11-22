@@ -10,7 +10,7 @@ namespace lib_presentacion.interfaces
     public interface IPuestosPresentacion
     {
         Task<List<Puestos>> Listar();
-        Task<List<Puestos>> PorTipo(Puestos? entidad);
+        Task<List<Puestos>> PorNombre(Puestos? entidad);
         Task<Puestos?> Guardar(Puestos? entidad);
         Task<Puestos?> Modificar(Puestos? entidad);
         Task<Puestos?> Borrar(Puestos? entidad);

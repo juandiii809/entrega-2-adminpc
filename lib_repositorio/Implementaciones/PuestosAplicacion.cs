@@ -64,5 +64,13 @@ namespace lib_repositorios.Implementaciones
             this.IConexion.SaveChanges();
             return entidad;
         }
+
+        public List<Puestos> PorNombre(Puestos? entidad)
+        {
+            return this.IConexion!.Puestos!
+                .Where(x => x.Nombre!.Contains(entidad!.Nombre!))
+                .Take(50)
+                .ToList();
+        }
     }
 }

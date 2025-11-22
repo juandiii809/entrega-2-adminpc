@@ -64,5 +64,13 @@ namespace lib_repositorio.Implementaciones
             this.IConexion.SaveChanges();
             return entidad;
         }
+
+        public List<Computadores> PorNombre(Computadores? entidad)
+        {
+            return this.IConexion!.Computadores!
+                .Where(x => x.Nombre!.Contains(entidad!.Nombre!))
+                .Take(50)
+                .ToList();
+        }
     }
 }

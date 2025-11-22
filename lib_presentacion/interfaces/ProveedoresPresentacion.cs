@@ -10,7 +10,7 @@ namespace lib_presentacion.interfaces
     public interface IProveedoresPresentacion
     {
         Task<List<Proveedores>> Listar();
-        Task<List<Proveedores>> PorTipo(Proveedores? entidad);
+        Task<List<Proveedores>> PorNombre(Proveedores? entidad);
         Task<Proveedores?> Guardar(Proveedores? entidad);
         Task<Proveedores?> Modificar(Proveedores? entidad);
         Task<Proveedores?> Borrar(Proveedores? entidad);

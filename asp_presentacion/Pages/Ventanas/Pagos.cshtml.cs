@@ -1,21 +1,22 @@
 using lib_dominio.Entidades;
 using lib_dominio.Nucleo;
 using lib_presentacion.interfaces;
+using lib_presentaciones.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_presentacion.Pages.Ventanas
 {
-    public class ProductosModel : PageModel
+    public class PagosModel : PageModel
     {
-        private IProductosPresentacion? iPresentacion = null;
+        private IPagosPresentacion? iPresentacion = null;
 
-        public ProductosModel(IProductosPresentacion iPresentacion)
+        public PagosModel(IPagosPresentacion iPresentacion)
         {
             try
             {
                 this.iPresentacion = iPresentacion;
-                Filtro = new Productos();
+                Filtro = new Pagos();
             }
             catch (Exception ex)
             {
@@ -25,9 +26,9 @@ namespace asp_presentacion.Pages.Ventanas
 
         public IFormFile? FormFile { get; set; }
         [BindProperty] public Enumerables.Ventanas Accion { get; set; }
-        [BindProperty] public Productos? Actual { get; set; }
-        [BindProperty] public Productos? Filtro { get; set; }
-        [BindProperty] public List<Productos>? Lista { get; set; }
+        [BindProperty] public Pagos? Actual { get; set; }
+        [BindProperty] public Pagos? Filtro { get; set; }
+        [BindProperty] public List<Pagos>? Lista { get; set; }
         public virtual void OnGet() { OnPostBtRefrescar(); }
 
         public void OnPostBtRefrescar()
@@ -40,9 +41,9 @@ namespace asp_presentacion.Pages.Ventanas
                 //    HttpContext.Response.Redirect("/");
                 //    return;
                 //}
-                Filtro!.Nombre = Filtro!.Nombre ?? "";
+                Filtro!.Tipo_pago = Filtro!.Tipo_pago ?? "";
                 Accion = Enumerables.Ventanas.Listas;
-                var task = this.iPresentacion!.PorNombre(Filtro!);
+                var task = this.iPresentacion!.PorTipo(Filtro!);
                 task.Wait();
                 Lista = task.Result;
                 Actual = null;
@@ -58,7 +59,7 @@ namespace asp_presentacion.Pages.Ventanas
             try
             {
                 Accion = Enumerables.Ventanas.Editar;
-                Actual = new Productos();
+                Actual = new Pagos();
             }
             catch (Exception ex)
             {
@@ -85,7 +86,7 @@ namespace asp_presentacion.Pages.Ventanas
             try
             {
                 Accion = Enumerables.Ventanas.Editar;
-                Task<Productos>? task = null;
+                Task<Pagos>? task = null;
                 if (Actual!.Id == 0)
                     task = this.iPresentacion!.Guardar(Actual!)!;
                 else

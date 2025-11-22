@@ -10,7 +10,7 @@ namespace lib_presentacion.interfaces
     public interface IInventariosPresentacion
     {
         Task<List<Inventarios>> Listar();
-        Task<List<Inventarios>> PorTipo(Inventarios? entidad);
+        Task<List<Inventarios>> PorDescripcion(Inventarios? entidad);
         Task<Inventarios?> Guardar(Inventarios? entidad);
         Task<Inventarios?> Modificar(Inventarios? entidad);
         Task<Inventarios?> Borrar(Inventarios? entidad);

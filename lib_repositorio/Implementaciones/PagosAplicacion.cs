@@ -64,5 +64,13 @@ namespace lib_repositorios.Implementaciones
             this.IConexion.SaveChanges();
             return entidad;
         }
+
+        public List<Pagos> PorTipo(Pagos? entidad)
+        {
+            return this.IConexion!.Pagos!
+                .Where(x => x.Tipo_pago!.Contains(entidad!.Tipo_pago!))
+                .Take(50)
+                .ToList();
+        }
     }
 }

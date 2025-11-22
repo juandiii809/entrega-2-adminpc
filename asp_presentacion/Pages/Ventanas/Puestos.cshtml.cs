@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_presentacion.Pages.Ventanas
 {
-    public class ProductosModel : PageModel
+    public class PuestosModel : PageModel
     {
-        private IProductosPresentacion? iPresentacion = null;
+        private IPuestosPresentacion? iPresentacion = null;
 
-        public ProductosModel(IProductosPresentacion iPresentacion)
+        public PuestosModel(IPuestosPresentacion iPresentacion)
         {
             try
             {
                 this.iPresentacion = iPresentacion;
-                Filtro = new Productos();
+                Filtro = new Puestos();
             }
             catch (Exception ex)
             {
@@ -25,9 +25,9 @@ namespace asp_presentacion.Pages.Ventanas
 
         public IFormFile? FormFile { get; set; }
         [BindProperty] public Enumerables.Ventanas Accion { get; set; }
-        [BindProperty] public Productos? Actual { get; set; }
-        [BindProperty] public Productos? Filtro { get; set; }
-        [BindProperty] public List<Productos>? Lista { get; set; }
+        [BindProperty] public Puestos? Actual { get; set; }
+        [BindProperty] public Puestos? Filtro { get; set; }
+        [BindProperty] public List<Puestos>? Lista { get; set; }
         public virtual void OnGet() { OnPostBtRefrescar(); }
 
         public void OnPostBtRefrescar()
@@ -58,7 +58,7 @@ namespace asp_presentacion.Pages.Ventanas
             try
             {
                 Accion = Enumerables.Ventanas.Editar;
-                Actual = new Productos();
+                Actual = new Puestos();
             }
             catch (Exception ex)
             {
@@ -85,7 +85,7 @@ namespace asp_presentacion.Pages.Ventanas
             try
             {
                 Accion = Enumerables.Ventanas.Editar;
-                Task<Productos>? task = null;
+                Task<Puestos>? task = null;
                 if (Actual!.Id == 0)
                     task = this.iPresentacion!.Guardar(Actual!)!;
                 else

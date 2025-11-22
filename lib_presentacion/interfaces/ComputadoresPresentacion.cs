@@ -10,7 +10,7 @@ namespace lib_presentacion.interfaces
     public interface IComputadoresPresentacion
     {
         Task<List<Computadores>> Listar();
-        Task<List<Computadores>> PorTipo(Computadores? entidad);
+        Task<List<Computadores>> PorNombre(Computadores? entidad);
         Task<Computadores?> Guardar(Computadores? entidad);
         Task<Computadores?> Modificar(Computadores? entidad);
         Task<Computadores?> Borrar(Computadores? entidad);

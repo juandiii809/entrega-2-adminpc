@@ -11,6 +11,7 @@ namespace lib_repositorios.Interfaces
     {
         void Configurar(string StringConexion);
         List<Inventarios> Listar();
+        List<Inventarios> PorDescripcion(Inventarios? entidad);
         Inventarios? Guardar(Inventarios? entidad);
         Inventarios? Modificar(Inventarios? entidad);
         Inventarios? Borrar(Inventarios? entidad);

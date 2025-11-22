@@ -1,21 +1,22 @@
 using lib_dominio.Entidades;
 using lib_dominio.Nucleo;
 using lib_presentacion.interfaces;
+using lib_presentaciones.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_presentacion.Pages.Ventanas
 {
-    public class ProductosModel : PageModel
+    public class ServiciosModel : PageModel
     {
-        private IProductosPresentacion? iPresentacion = null;
+        private IServiciosPresentacion? iPresentacion = null;
 
-        public ProductosModel(IProductosPresentacion iPresentacion)
+        public ServiciosModel(IServiciosPresentacion iPresentacion)
         {
             try
             {
                 this.iPresentacion = iPresentacion;
-                Filtro = new Productos();
+                Filtro = new Servicios();
             }
             catch (Exception ex)
             {
@@ -25,9 +26,9 @@ namespace asp_presentacion.Pages.Ventanas
 
         public IFormFile? FormFile { get; set; }
         [BindProperty] public Enumerables.Ventanas Accion { get; set; }
-        [BindProperty] public Productos? Actual { get; set; }
-        [BindProperty] public Productos? Filtro { get; set; }
-        [BindProperty] public List<Productos>? Lista { get; set; }
+        [BindProperty] public Servicios? Actual { get; set; }
+        [BindProperty] public Servicios? Filtro { get; set; }
+        [BindProperty] public List<Servicios>? Lista { get; set; }
         public virtual void OnGet() { OnPostBtRefrescar(); }
 
         public void OnPostBtRefrescar()
@@ -58,7 +59,7 @@ namespace asp_presentacion.Pages.Ventanas
             try
             {
                 Accion = Enumerables.Ventanas.Editar;
-                Actual = new Productos();
+                Actual = new Servicios();
             }
             catch (Exception ex)
             {
@@ -85,7 +86,7 @@ namespace asp_presentacion.Pages.Ventanas
             try
             {
                 Accion = Enumerables.Ventanas.Editar;
-                Task<Productos>? task = null;
+                Task<Servicios>? task = null;
                 if (Actual!.Id == 0)
                     task = this.iPresentacion!.Guardar(Actual!)!;
                 else

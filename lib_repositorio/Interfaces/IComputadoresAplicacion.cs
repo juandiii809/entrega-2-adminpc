@@ -11,6 +11,7 @@ namespace lib_repositorios.Interfaces
     {
         void Configurar(string StringConexion);
         List<Computadores> Listar();
+        List<Computadores> PorNombre(Computadores? entidad);
         Computadores? Guardar(Computadores? entidad);  
         Computadores? Modificar(Computadores? entidad);
         Computadores? Borrar(Computadores? entidad);

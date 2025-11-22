@@ -11,6 +11,7 @@ namespace lib_repositorios.Interfaces
     {
         void Configurar(string StringConexion);
         List<Puestos> Listar();
+        List<Puestos> PorNombre(Puestos? nombre);
         Puestos? Guardar(Puestos? entidad);
         Puestos? Modificar(Puestos? entidad);
         Puestos? Borrar(Puestos? entidad);

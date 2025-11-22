@@ -12,6 +12,7 @@ namespace lib_repositorios.Interfaces
     {
         void Configurar(string StringConexion);
         List<Marcas> Listar();
+        List<Marcas> PorNombre(Marcas? entidad);
         Marcas? Guardar(Marcas? entidad);
         Marcas? Modificar(Marcas? entidad);
         Marcas? Borrar(Marcas? entidad);

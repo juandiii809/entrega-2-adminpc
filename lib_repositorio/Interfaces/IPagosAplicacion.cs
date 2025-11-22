@@ -11,6 +11,7 @@ namespace lib_repositorios.Interfaces
     {
         void Configurar(string StringConexion);
         List<Pagos> Listar();
+        List<Pagos> PorTipo(Pagos? entidad);
         Pagos? Guardar(Pagos? entidad);
         Pagos? Modificar(Pagos? entidad);
         Pagos? Borrar(Pagos? entidad);

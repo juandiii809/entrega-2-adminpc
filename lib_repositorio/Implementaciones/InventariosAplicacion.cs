@@ -64,5 +64,12 @@ namespace lib_repositorio.Implementaciones
             this.IConexion.SaveChanges();
             return entidad;
         }
+        public List<Inventarios> PorDescripcion(Inventarios? entidad)
+        {
+            return this.IConexion!.Inventarios!
+                .Where(x => x.Descripcion!.Contains(entidad!.Descripcion!))
+                .Take(50)
+                .ToList();
+        }
     }
 }
