@@ -11,6 +11,7 @@ namespace lib_repositorios.Interfaces
     {
         void Configurar(string StringConexion);
         List<Facturas> Listar();
+        List<Facturas> PorDescripcion(Facturas? entidad);
         Facturas? Guardar(Facturas? entidad);
         Facturas? Modificar(Facturas? entidad);
         Facturas? Borrar(Facturas? entidad);

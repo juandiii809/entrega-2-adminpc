@@ -32,14 +32,14 @@ namespace lib_presentacion.implementaciones
             return lista;
         }
 
-        public async Task<List<Facturas>> PorTipo(Facturas? entidad)
+        public async Task<List<Facturas>> PorDescripcion(Facturas? entidad)
         {
             var lista = new List<Facturas>();
             var datos = new Dictionary<string, object>();
             datos["Entidad"] = entidad!;
 
             comunicaciones = new Comunicaciones();
-            datos = comunicaciones.ConstruirUrl(datos, "Facturas/PorTipo");
+            datos = comunicaciones.ConstruirUrl(datos, "Facturas/PorDescripcion");
             var respuesta = await comunicaciones!.Ejecutar(datos);
 
             if (respuesta.ContainsKey("Error"))

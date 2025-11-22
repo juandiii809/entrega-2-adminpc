@@ -64,5 +64,12 @@ namespace lib_repositorio.Implementaciones
             this.IConexion.SaveChanges();
             return entidad;
         }
+        public List<Empleados> PorNombre(Empleados? entidad)
+        {
+            return this.IConexion!.Empleados!
+                .Where(x => x.Nombre!.Contains(entidad!.Nombre!))
+                .Take(50)
+                .ToList();
+        }
     }
 }

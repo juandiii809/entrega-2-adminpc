@@ -10,7 +10,7 @@ namespace lib_presentacion.interfaces
     public interface IFacturasPresentacion
     {
         Task<List<Facturas>> Listar();
-        Task<List<Facturas>> PorTipo(Facturas? entidad);
+        Task<List<Facturas>> PorDescripcion(Facturas? entidad);
         Task<Facturas?> Guardar(Facturas? entidad);
         Task<Facturas?> Modificar(Facturas? entidad);
         Task<Facturas?> Borrar(Facturas? entidad);
