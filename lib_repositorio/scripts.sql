@@ -84,6 +84,7 @@ create table [Productos](
 	[Id] int not null identity(1,1) primary key,
 	[Nombre] nvarchar(30) not null,
 	[Descripcion] nvarchar(100) not null,
+	[ImagenUrl] nvarchar(100) not null,
 	[Garantia] int references [Garantias]([Id]) not null,
 );
 create table [Pagos](
@@ -193,12 +194,12 @@ INSERT INTO Empleados (Nombre, Apellido, Cedula, Correo, puesto) VALUES
 ('Fernanda', 'Quintero', '2003004004', 'fernanda@example.com', 4),
 ('Andrés', 'Moreno', '2003004005', 'andres@example.com', 5);
 
-INSERT INTO Productos (Nombre, Descripcion, garantia) VALUES
-('Mouse', 'Mouse óptico inalámbrico', 1),
-('Teclado', 'Teclado mecánico retroiluminado', 2),
-('Monitor', 'Monitor LED 24 pulgadas', 3),
-('Impresora', 'Impresora multifuncional', 4),
-('Parlantes', 'Parlantes estéreo 2.0', 5);
+INSERT INTO Productos (Nombre, Descripcion, ImagenUrl, garantia) VALUES
+('Mouse', 'Mouse óptico inalámbrico', 'aaaaaaaaaaaaaaaa', 1),
+('Teclado', 'Teclado mecánico retroiluminado', 'aaaaaaaaaaaaaaaa', 2),
+('Monitor', 'Monitor LED 24 pulgadas', 'aaaaaaaaaaaaaaaa', 3),
+('Impresora', 'Impresora multifuncional', 'aaaaaaaaaaaaaaaa', 4),
+('Parlantes', 'Parlantes estéreo 2.0', 'aaaaaaaaaaaaaaaa', 5);
 
 INSERT INTO Inventarios (Descripcion, Piezas_disponibles, producto) VALUES
 ('Inventario Mouse', 50, 1),

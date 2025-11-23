@@ -115,6 +115,7 @@ namespace ut_presentacion.Nucleo
             var entidad = new Productos();
             entidad.Nombre = "pruebas";
             entidad.Descripcion = "pruebas";
+            entidad.ImagenUrl = "pruebas";
             entidad.Garantia = 1;
             return entidad;
         }
