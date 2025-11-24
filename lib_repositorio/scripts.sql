@@ -247,3 +247,18 @@ INSERT INTO Proveedores (Nombre, correo, telefono, Producto) VALUES
 
 insert into Usuario values('Juan', 'hola1234')
 select * from Usuario
+
+create table Roles(
+	[Id] int primary key identity(1,1),
+	Rol nvarchar(20)
+);
+
+insert into [Roles] values('cliente')
+insert into [Roles] values('admin')
+select * from Roles
+
+create table [Auditorias](
+	[Id] int primary key identity(1,1),
+	[Fecha] date,
+	[Descripcion] nvarchar(100),
+);
