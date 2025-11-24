@@ -11,6 +11,7 @@ namespace lib_repositorios.Interfaces
     {
         void Configurar(string StringConexion);
         List<Garantias> Listar();
+        List<Garantias> PorFecha(Garantias? entidad);
         Garantias? Guardar(Garantias? entidad);
         Garantias? Modificar(Garantias? entidad);
         Garantias? Borrar(Garantias? entidad);

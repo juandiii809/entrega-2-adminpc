@@ -10,7 +10,7 @@ namespace lib_presentacion.interfaces
     public interface IGarantiasPresentacion
     {
         Task<List<Garantias>> Listar();
-        Task<List<Garantias>> PorTipo(Garantias? entidad);
+        Task<List<Garantias>> PorFecha(Garantias? entidad);
         Task<Garantias?> Guardar(Garantias? entidad);
         Task<Garantias?> Modificar(Garantias? entidad);
         Task<Garantias?> Borrar(Garantias? entidad);

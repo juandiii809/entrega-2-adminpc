@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lib_repositorios.Implementaciones
+namespace lib_repositorio.Implementaciones
 {
-    public class GarantiasAplicacion: IGarantiasAplicacion
+    public class GarantiasAplicacion : IGarantiasAplicacion
     {
         private IConexion? IConexion = null;
 
@@ -63,6 +63,14 @@ namespace lib_repositorios.Implementaciones
             entry.State = EntityState.Modified;
             this.IConexion.SaveChanges();
             return entidad;
+        }
+
+        public List<Garantias> PorFecha(Garantias? entidad)
+        {
+            return this.IConexion!.Garantias!
+                .Where(x => x.Fecha_inicio!.Contains(entidad!.Fecha_inicio!))
+                .Take(50)
+                .ToList();
         }
     }
 }

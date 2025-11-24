@@ -9,8 +9,8 @@ namespace lib_dominio.Entidades
 {
     public class Garantias
     {
-       [Key]public int Id { get; set; }
-       public DateTime Fecha_inicio { get; set; } 
-       public DateTime Fecha_fin { get; set; }
+        [Key] public int Id { get; set; }
+        public string? Fecha_inicio { get; set; }
+        public string? Fecha_fin { get; set; }
     }
 }

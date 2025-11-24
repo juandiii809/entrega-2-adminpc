@@ -16,8 +16,8 @@ create table [Componentes](
 );
 create table [garantias](
 	[Id] int not null identity(1,1) primary key,
-	[Fecha_inicio] smalldatetime default getdate() not null,
-	[Fecha_fin] smalldatetime not null,
+	[Fecha_inicio] nvarchar(50) not null,
+	[Fecha_fin] nvarchar(50) not null,
 );
 
 create table [Marcas](
@@ -138,11 +138,11 @@ INSERT INTO Componentes (Nombre, Descripcion) VALUES
 ('Tarjeta Gráfica GTX1050', 'GPU Nvidia GTX 1050');
 
 INSERT INTO Garantias (Fecha_inicio, Fecha_fin) VALUES
-(GETDATE(), DATEADD(year, 1, GETDATE())),
-(GETDATE(), DATEADD(year, 2, GETDATE())),
-(GETDATE(), DATEADD(month, 6, GETDATE())),
-(GETDATE(), DATEADD(year, 3, GETDATE())),
-(GETDATE(), DATEADD(day, 90, GETDATE()));
+('2025', '2026'),
+('2025', '2027'),
+('2025', '2028'),
+('2025', '2029'),
+('2025', '2030');
 
 INSERT INTO Marcas (Nombre, Descripcion) VALUES
 ('Lenovo', 'Fabricante de computadores'),
