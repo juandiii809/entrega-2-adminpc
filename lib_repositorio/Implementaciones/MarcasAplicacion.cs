@@ -30,6 +30,11 @@ namespace lib_repositorios.Implementaciones
             if (entidad!.Id == 0)
                 throw new Exception("lbNoSeGuardo");
             // Operaciones
+            this.IConexion!.Auditorias!.Add(new Auditorias
+            {
+                Fecha = DateTime.Now,
+                Descripcion = $"Se elimino la marca {entidad.Nombre}"
+            });
             this.IConexion!.Marcas!.Remove(entidad);
             this.IConexion.SaveChanges();
             return entidad;
@@ -42,6 +47,11 @@ namespace lib_repositorios.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("lbYaSeGuardo");
             // Operaciones
+            this.IConexion!.Auditorias!.Add(new Auditorias
+            {
+                Fecha = DateTime.Now,
+                Descripcion = $"Se creó la marca {entidad.Nombre}"
+            });
             this.IConexion!.Marcas!.Add(entidad);
             this.IConexion.SaveChanges();
             return entidad;
@@ -59,6 +69,11 @@ namespace lib_repositorios.Implementaciones
             if (entidad!.Id == 0)
                 throw new Exception("lbNoSeGuardo");
             // Operaciones
+            this.IConexion!.Auditorias!.Add(new Auditorias
+            {
+                Fecha = DateTime.Now,
+                Descripcion = $"Se modifico la marca {entidad.Nombre}"
+            });
             var entry = this.IConexion!.Entry<Marcas>(entidad);
             entry.State = EntityState.Modified;
             this.IConexion.SaveChanges();

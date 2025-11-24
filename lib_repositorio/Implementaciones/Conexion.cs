@@ -14,6 +14,8 @@ namespace lib_repositorios.Implementaciones
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
 
+        public DbSet<Roles>? Roles { get; set; }
+        public DbSet<Auditorias>? Auditorias { get; set; }
         public DbSet<Usuario>? Usuario { get; set; }
         public DbSet<Componentes>? Componentes { get; set; }
         public DbSet<Marcas>? Marcas { get; set; }

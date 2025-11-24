@@ -30,6 +30,11 @@ namespace lib_repositorio.Implementaciones
             if (entidad!.Id == 0)
                 throw new Exception("lbNoSeGuardo");
             // Operaciones
+            this.IConexion!.Auditorias!.Add(new Auditorias
+            {
+                Fecha = DateTime.Now,
+                Descripcion = $"Se elimino el computador {entidad.Nombre}"
+            });
             this.IConexion!.Computadores!.Remove(entidad);
             this.IConexion.SaveChanges();
             return entidad;
@@ -42,6 +47,11 @@ namespace lib_repositorio.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("lbYaSeGuardo");
             // Operaciones
+            this.IConexion!.Auditorias!.Add(new Auditorias
+            {
+                Fecha = DateTime.Now,
+                Descripcion = $"Se creó el computador {entidad.Nombre}"
+            });
             this.IConexion!.Computadores!.Add(entidad);
             this.IConexion.SaveChanges();
             return entidad;
@@ -59,6 +69,11 @@ namespace lib_repositorio.Implementaciones
             if (entidad!.Id == 0)
                 throw new Exception("lbNoSeGuardo");
             // Operaciones
+            this.IConexion!.Auditorias!.Add(new Auditorias
+            {
+                Fecha = DateTime.Now,
+                Descripcion = $"Se modifico el computador {entidad.Nombre}"
+            });
             var entry = this.IConexion!.Entry<Computadores>(entidad);
             entry.State = EntityState.Modified;
             this.IConexion.SaveChanges();

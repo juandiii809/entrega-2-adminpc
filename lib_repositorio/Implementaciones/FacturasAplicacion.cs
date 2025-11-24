@@ -30,6 +30,11 @@ namespace lib_repositorio.Implementaciones
             if (entidad!.Id == 0)
                 throw new Exception("lbNoSeGuardo");
             // Operaciones
+            this.IConexion!.Auditorias!.Add(new Auditorias
+            {
+                Fecha = DateTime.Now,
+                Descripcion = $"Se elimino las facturas {entidad.Id}"
+            });
             this.IConexion!.Facturas!.Remove(entidad);
             this.IConexion.SaveChanges();
             return entidad;
@@ -42,6 +47,11 @@ namespace lib_repositorio.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("lbYaSeGuardo");
             // Operaciones
+            this.IConexion!.Auditorias!.Add(new Auditorias
+            {
+                Fecha = DateTime.Now,
+                Descripcion = $"Se creó las facturas {entidad.Id}"
+            });
             this.IConexion!.Facturas!.Add(entidad);
             this.IConexion.SaveChanges();
             return entidad;
@@ -59,6 +69,11 @@ namespace lib_repositorio.Implementaciones
             if (entidad!.Id == 0)
                 throw new Exception("lbNoSeGuardo");
             // Operaciones
+            this.IConexion!.Auditorias!.Add(new Auditorias
+            {
+                Fecha = DateTime.Now,
+                Descripcion = $"Se modifico la factura {entidad.Id}"
+            });
             var entry = this.IConexion!.Entry<Facturas>(entidad);
             entry.State = EntityState.Modified;
             this.IConexion.SaveChanges();

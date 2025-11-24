@@ -31,6 +31,11 @@ namespace lib_repositorios.Implementaciones
             if (entidad!.Id == 0)
                 throw new Exception("lbNoSeGuardo");
             // Operaciones
+            this.IConexion!.Auditorias!.Add(new Auditorias
+            {
+                Fecha = DateTime.Now,
+                Descripcion = $"Se elimino la orden {entidad.Id}"
+            });
             this.IConexion!.Orden_servicios!.Remove(entidad);
             this.IConexion.SaveChanges();
             return entidad;
@@ -43,6 +48,11 @@ namespace lib_repositorios.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("lbYaSeGuardo");
             // Operaciones
+            this.IConexion!.Auditorias!.Add(new Auditorias
+            {
+                Fecha = DateTime.Now,
+                Descripcion = $"Se creó la orden {entidad.Id}"
+            });
             this.IConexion!.Orden_servicios!.Add(entidad);
             this.IConexion.SaveChanges();
             return entidad;
@@ -60,6 +70,11 @@ namespace lib_repositorios.Implementaciones
             if (entidad!.Id == 0)
                 throw new Exception("lbNoSeGuardo");
             // Operaciones
+            this.IConexion!.Auditorias!.Add(new Auditorias
+            {
+                Fecha = DateTime.Now,
+                Descripcion = $"Se modifico la orden {entidad.Id}"
+            });
             var entry = this.IConexion!.Entry<Orden_servicios>(entidad);
             entry.State = EntityState.Modified;
             this.IConexion.SaveChanges();
