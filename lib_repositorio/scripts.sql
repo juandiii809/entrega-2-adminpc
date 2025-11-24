@@ -210,14 +210,14 @@ INSERT INTO Inventarios (Descripcion, Piezas_disponibles, producto) VALUES
 ('Inventario Impresora', 10, 4),
 ('Inventario Parlantes', 25, 5);
 
-INSERT INTO Orden_servicios (Estado, Fecha, Precio, servicio, cliente, empleado) VALUES
+INSERT INTO Orden_servicios (Estado, Fecha, Tipo, Precio, servicio, cliente, empleado) VALUES
 (1, GETDATE(),'n1', 60, 1, 1, 1),
 (0, GETDATE(),'n2', 120, 2, 2, 2),
 (1, GETDATE(),'n3', 90, 3, 3, 3),
 (1, GETDATE(),'n4', 40, 4, 4, 4),
 (0, GETDATE(),'n5', 35, 5, 5, 5);
 
-INSERT INTO Orden_productos (Cantidad, Producto, orden) VALUES
+INSERT INTO Orden_productos (Cantidad, Observacion, Producto, orden) VALUES
 (2,'num1', 1, 1),
 (1,'num2', 2, 2),
 (3,'num3', 3, 3),
