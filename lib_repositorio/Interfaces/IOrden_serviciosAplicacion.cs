@@ -11,6 +11,7 @@ namespace lib_repositorio.Interfaces
     {
         void Configurar(string StringConexion);
         List<Orden_servicios> Listar();
+        List<Orden_servicios> PorTipo(Orden_servicios? entidad);
         Orden_servicios? Guardar(Orden_servicios? entidad);
         Orden_servicios? Modificar(Orden_servicios? entidad);
         Orden_servicios? Borrar(Orden_servicios? entidad);

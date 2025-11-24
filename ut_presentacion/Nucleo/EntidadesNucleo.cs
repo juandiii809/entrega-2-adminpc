@@ -133,6 +133,7 @@ namespace ut_presentacion.Nucleo
         {
             var entidad = new Orden_productos();
             entidad.Cantidad = 10;
+            entidad.Observacion = "pruebas";
             entidad.Producto = 1;
             entidad.Orden = 2;
             return entidad;
@@ -142,6 +143,7 @@ namespace ut_presentacion.Nucleo
             var entidad = new Orden_servicios();
             entidad.Estado = true;
             entidad.Fecha = DateTime.Now;
+            entidad.Tipo = "Normal";
             entidad.Precio = 1000; 
             entidad.Empleado = 1;
             entidad.Servicio = 3;

@@ -10,7 +10,7 @@ namespace lib_presentacion.interfaces
     public interface IOrden_productosPresentacion
     {
         Task<List<Orden_productos>> Listar();
-        Task<List<Orden_productos>> PorTipo(Orden_productos? entidad);
+        Task<List<Orden_productos>> PorObservacion(Orden_productos? entidad);
         Task<Orden_productos?> Guardar(Orden_productos? entidad);
         Task<Orden_productos?> Modificar(Orden_productos? entidad);
         Task<Orden_productos?> Borrar(Orden_productos? entidad);

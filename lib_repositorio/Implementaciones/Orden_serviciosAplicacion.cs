@@ -65,5 +65,13 @@ namespace lib_repositorios.Implementaciones
             this.IConexion.SaveChanges();
             return entidad;
         }
+
+        public List<Orden_servicios> PorTipo(Orden_servicios? entidad)
+        {
+            return this.IConexion!.Orden_servicios!
+                .Where(x => x.Tipo!.Contains(entidad!.Tipo!))
+                .Take(50)
+                .ToList();
+        }
     }
 }

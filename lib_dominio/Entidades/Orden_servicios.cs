@@ -13,6 +13,7 @@ namespace lib_dominio.Entidades
         [Key]public int Id { get; set; }
         public bool Estado { get; set; }
         public DateTime Fecha { get; set; }
+        public string? Tipo { get; set; }
         public decimal Precio { get; set; }
         public int Servicio { get; set; }
         public int Cliente { get; set; }

@@ -65,5 +65,13 @@ namespace lib_repositorios.Implementaciones
             this.IConexion.SaveChanges();
             return entidad;
         }
+
+        public List<Orden_productos> PorObservacion(Orden_productos? entidad)
+        {
+            return this.IConexion!.Orden_productos!
+                .Where(x => x.Observacion!.Contains(entidad!.Observacion!))
+                .Take(50)
+                .ToList();
+        }
     }
 }

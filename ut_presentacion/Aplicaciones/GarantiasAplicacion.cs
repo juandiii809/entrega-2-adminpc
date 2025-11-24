@@ -46,19 +46,11 @@ namespace ut_presentacion.Aplicaciones
             this.iConexion!.Garantias!.Add(this.entidad);
             this.iConexion!.SaveChanges();
 
-            var fechaValida = FechaValida();
 
             return true;
         }
 
-        public bool FechaValida()
-        {
-            if (this.entidad!.Fecha_fin > this.entidad.Fecha_inicio)
-            {
-                return true;
-            }
-            return false;
-        }
+        
 
         public bool Modificar()
         {

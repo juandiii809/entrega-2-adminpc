@@ -12,6 +12,7 @@ namespace lib_dominio.Entidades
     {
         [Key]public int Id { get; set; }
         public int Cantidad { get; set; }
+        public string? Observacion { get; set; }
         public int Producto { get; set; }
         public int Orden { get; set; }
         
