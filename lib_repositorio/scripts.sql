@@ -74,6 +74,7 @@ create table [Orden_servicios](
 	[Id] int not null identity(1,1) primary key,
 	[Estado] bit not null,
 	[Fecha] smalldatetime not null,
+	[Tipo] nvarchar(100),
 	[Precio] decimal not null,
 	[Servicio] int references [Servicios]([Id]) not null,
 	[Cliente] int references [Clientes]([Id]) not null,
@@ -116,6 +117,7 @@ use adminpc
 create table [Orden_productos](
 	[Id] int not null identity(1,1) primary key,
 	[Cantidad] int not null,
+	[Observacion] nvarchar(100),
 	[Producto] int references [Productos]([Id]) not null,
 	[Orden] int references [Orden_servicios]([Id]) not null,
 );
@@ -195,11 +197,11 @@ INSERT INTO Empleados (Nombre, Apellido, Cedula, Correo, puesto) VALUES
 ('Andrés', 'Moreno', '2003004005', 'andres@example.com', 5);
 
 INSERT INTO Productos (Nombre, Descripcion, ImagenUrl, garantia) VALUES
-('Mouse', 'Mouse óptico inalámbrico', 'aaaaaaaaaaaaaaaa', 1),
-('Teclado', 'Teclado mecánico retroiluminado', 'aaaaaaaaaaaaaaaa', 2),
-('Monitor', 'Monitor LED 24 pulgadas', 'aaaaaaaaaaaaaaaa', 3),
-('Impresora', 'Impresora multifuncional', 'aaaaaaaaaaaaaaaa', 4),
-('Parlantes', 'Parlantes estéreo 2.0', 'aaaaaaaaaaaaaaaa', 5);
+('Mouse', 'Mouse óptico inalámbrico', '/img/mouse.jpg', 1),
+('Teclado', 'Teclado mecánico retroiluminado', '/img/teclado.jpg', 2),
+('Monitor', 'Monitor LED 24 pulgadas', '/img/monitor.jpg', 3),
+('Impresora', 'Impresora multifuncional', '/img/impresora.jpg', 4),
+('Parlantes', 'Parlantes estéreo 2.0', '/img/parlante.jpg', 5);
 
 INSERT INTO Inventarios (Descripcion, Piezas_disponibles, producto) VALUES
 ('Inventario Mouse', 50, 1),
@@ -209,18 +211,18 @@ INSERT INTO Inventarios (Descripcion, Piezas_disponibles, producto) VALUES
 ('Inventario Parlantes', 25, 5);
 
 INSERT INTO Orden_servicios (Estado, Fecha, Precio, servicio, cliente, empleado) VALUES
-(1, GETDATE(), 60, 1, 1, 1),
-(0, GETDATE(), 120, 2, 2, 2),
-(1, GETDATE(), 90, 3, 3, 3),
-(1, GETDATE(), 40, 4, 4, 4),
-(0, GETDATE(), 35, 5, 5, 5);
+(1, GETDATE(),'n1', 60, 1, 1, 1),
+(0, GETDATE(),'n2', 120, 2, 2, 2),
+(1, GETDATE(),'n3', 90, 3, 3, 3),
+(1, GETDATE(),'n4', 40, 4, 4, 4),
+(0, GETDATE(),'n5', 35, 5, 5, 5);
 
 INSERT INTO Orden_productos (Cantidad, Producto, orden) VALUES
-(2, 1, 1),
-(1, 2, 2),
-(3, 3, 3),
-(1, 4, 4),
-(5, 5, 5);
+(2,'num1', 1, 1),
+(1,'num2', 2, 2),
+(3,'num3', 3, 3),
+(1,'num4', 4, 4),
+(5,'num5', 5, 5);
 
 INSERT INTO Facturas (Fecha, Descripcion, Valor_total, pago, garantia, orden) VALUES
 (GETDATE(), 'Factura mantenimiento', 500, 1, 1, 1),
@@ -245,4 +247,3 @@ INSERT INTO Proveedores (Nombre, correo, telefono, Producto) VALUES
 
 insert into Usuario values('Juan', 'hola1234')
 select * from Usuario
-

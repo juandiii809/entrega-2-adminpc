@@ -2,6 +2,9 @@
 using lib_presentacion.interfaces;
 using lib_presentaciones.Implementaciones;
 using lib_presentaciones.Interfaces;
+using lib_repositorios.Implementaciones;
+using lib_repositorios.Interfaces;
+using Microsoft.Extensions.Options;
 
 namespace asp_presentacion
 {
@@ -32,6 +35,14 @@ namespace asp_presentacion
             services.AddScoped<IServiciosPresentacion, ServiciosPresentacion>();
             services.AddScoped<IOrden_productosPresentacion, Orden_productosPresentacion>();
             services.AddScoped<IOrden_serviciosPresentacion, Orden_serviciosPresentacion>();
+            services.AddScoped<IConexion, Conexion>();
+            services.AddScoped<TokenAplicacion>();
+
+            services.AddAuthentication("CookieAuth")
+            .AddCookie("CookieAuth", options =>
+            {
+                options.LoginPath = "/Login";
+            });
 
             services.AddControllers();
             services.AddEndpointsApiExplorer();
@@ -41,6 +52,7 @@ namespace asp_presentacion
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
             });
         }
+        
 
         public void Configure(WebApplication app, IWebHostEnvironment env)
         {
@@ -50,10 +62,11 @@ namespace asp_presentacion
             }
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.MapRazorPages();
             app.UseSession();
-            app.Run();
+            
         }
     }
 }

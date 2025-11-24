@@ -9,6 +9,11 @@
   <ItemGroup>
     <ProjectReference Include="..\lib_dominio\lib_dominio.csproj" />
     <ProjectReference Include="..\lib_presentacion\lib_presentacion.csproj" />
+    <ProjectReference Include="..\lib_repositorio\lib_repositorio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
 </Project>
