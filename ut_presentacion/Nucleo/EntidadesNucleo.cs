@@ -9,6 +9,7 @@ namespace ut_presentacion.Nucleo
             var entidad = new Componentes();
             entidad.Nombre = "Pruebas-" + DateTime.Now.ToString("yyyyMMddhhmmss");
             entidad.Descripcion = "dhfhfhh";
+            entidad.Imagen = "imagen.jpg";
 
             return entidad;
         }
@@ -32,8 +33,8 @@ namespace ut_presentacion.Nucleo
         public static Garantias? Garantias()
         {
             var entidad = new Garantias();
-            entidad.Fecha_inicio = DateTime.Now;
-            entidad.Fecha_fin = DateTime.Now.AddMonths(6);
+            entidad.Fecha_inicio = ""+DateTime.Now;
+            entidad.Fecha_fin = ""+DateTime.Now.AddMonths(6);
             return entidad;
         }
 
@@ -63,6 +64,7 @@ namespace ut_presentacion.Nucleo
             entidad.Precio = 1000;
             entidad.Marca = 2; // Asegúrate de que este ID exista en la base de datos
             entidad.Componente = 3; // Asegúrate de que este ID exista en la base de datos
+            entidad.Imagen = "imagen.jpg";
             return entidad;
 
         }

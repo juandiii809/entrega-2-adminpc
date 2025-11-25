@@ -13,6 +13,7 @@ create table [Componentes](
 	[Id] int not null identity(1,1) primary key,
 	[Nombre] nvarchar(30) not null,
 	[Descripcion] nvarchar(100) not null,
+	[Imagen] nvarchar(100)
 );
 create table [garantias](
 	[Id] int not null identity(1,1) primary key,
@@ -32,7 +33,8 @@ create table [Computadores](
 	[Modelo] nvarchar(100) not null,
 	[Precio] decimal not null,
 	[Marca] int references [Marcas]([Id]) not null,
-	[Componente] int references [Componentes]([Id]) not null
+	[Componente] int references [Componentes]([Id]) not null,
+	[Imagen] nvarchar(100)
 );
 
 create table [Clientes](
@@ -132,12 +134,12 @@ create table [Proveedores](
 	[Producto] int references [Productos]([Id]) not null,
 );
 
-INSERT INTO Componentes (Nombre, Descripcion) VALUES
-('RAM 8GB', 'Memoria DDR4 8GB'),
-('SSD 256GB', 'Unidad estado sólido'),
-('Fuente 500W', 'Fuente de poder genérica'),
-('Placa Base A320', 'Motherboard básica'),
-('Tarjeta Gráfica GTX1050', 'GPU Nvidia GTX 1050');
+INSERT INTO Componentes (Nombre, Descripcion, Imagen) VALUES
+('RAM 8GB', 'Memoria DDR4 8GB', '/img/ram.jpg'),
+('SSD 256GB', 'Unidad estado sólido', '/img/ssd.jpg'),
+('Fuente 500W', 'Fuente de poder genérica', '/img/fuente.jpg'),
+('Placa Base A320', 'Motherboard básica', '/img/placa.jpg'),
+('Tarjeta Gráfica GTX1050', 'GPU Nvidia GTX 1050', '/img/grafica.jpg');
 
 INSERT INTO Garantias (Fecha_inicio, Fecha_fin) VALUES
 ('2025', '2026'),
@@ -174,12 +176,12 @@ INSERT INTO Pagos (Fecha, Monto, Tipo_pago) VALUES
 (GETDATE(), 300, 'Efectivo'),
 (GETDATE(), 1000, 'Tarjeta débito');
 
-INSERT INTO Computadores (Nombre, Modelo, Precio, marca, componente) VALUES
-('ThinkPad', 'T14', 1200, 1, 1),
-('Pavilion', '15-ec', 1000, 2, 2),
-('Inspiron', '3505', 900, 3, 3),
-('VivoBook', 'X515', 1100, 4, 4),
-('Aspire', 'A315', 850, 5, 5);
+INSERT INTO Computadores (Nombre, Modelo, Precio, marca, componente, Imagen) VALUES
+('ThinkPad', 'T14', 1200, 1, 1, '/img/thinkpad.png'),
+('Pavilion', '15-ec', 1000, 2, 2, '/img/pavilion.jpg'),
+('Inspiron', '3505', 900, 3, 3, '/img/inspiron.jpg'),
+('VivoBook', 'X515', 1100, 4, 4, '/img/vivo.png'),
+('Aspire', 'A315', 850, 5, 5, '/img/aspire.jpg');
 
 -- 8. Clientes (requiere Computadores)
 INSERT INTO Clientes (Nombre, Apellido, Cedula, Correo, computador) VALUES
@@ -262,3 +264,11 @@ create table [Auditorias](
 	[Fecha] date,
 	[Descripcion] nvarchar(100),
 );
+
+
+select * from Componentes
+select * from Computadores
+
+update computadores set Imagen = '/img/pavilion.png' where id = 2
+update computadores set Imagen = '/img/inspiron.png' where id = 3
+update computadores set Imagen = '/img/aspire.png' where id = 5

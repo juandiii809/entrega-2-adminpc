@@ -55,6 +55,8 @@
                        asp-for="@Model.Actual!.Marca" />
                 <input type="hidden"
                        asp-for="@Model.Actual!.Componente" />
+                <input type="hidden"
+                       asp-for="@Model.Actual!.Imagen" />
                 
             }
             @if (Model.Accion == lib_dominio.Nucleo.Enumerables.Ventanas.Editar)
@@ -112,6 +114,16 @@
                                 <input id="nmFecha"
                                        class="cts_forms form-control"
                                        asp-for="@Model.Actual!.Componente" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">
+                                imagen
+                            </label>
+                            <div class="col-lg-6">
+                                <input id="nmFecha"
+                                       class="cts_forms form-control"
+                                       asp-for="@Model.Actual!.Imagen" />
                             </div>
                         </div>
                     </div>
@@ -181,6 +193,9 @@
                             <th class="cl_hidden">
                                 Componente
                             </th>
+                            <th class="cl_hidden">
+                                Imagen
+                            </th>
                             
                             <th class="cl_actions">
                                 Accion
@@ -205,6 +220,11 @@
                                     </td>
                                     <td class="cl_hidden">
                                         @elemento.Componente
+                                    </td>
+                                    <td class="cl_hidden">
+                                        <img src="@elemento.Imagen"
+                                             alt="@elemento.Nombre"
+                                             style="width: 50px; height: auto;" />
                                     </td>
                                     <td>
                                         <input type="submit"

@@ -19,5 +19,7 @@ namespace lib_dominio.Entidades
         public int Componente { get; set; }
         [ForeignKey("Componente")]
         public Componentes? _componente { get; set; }
+
+        public string? Imagen { get; set; }
     }
 }
