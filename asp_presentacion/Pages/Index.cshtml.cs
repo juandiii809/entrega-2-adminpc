@@ -39,7 +39,7 @@ namespace asp_presentacion.Pages
                     OnPostBtClean();
                     return;
                 }
-                if ("admin.123" != Usuario + "." + Contrasena)
+                if ("admin.123" != Usuario + "." + Contrasena && "empleado.123" != Usuario + "." + Contrasena && "cliente.123" != Usuario + "." + Contrasena)
                 {
                     OnPostBtClean();
                     return;

@@ -28,7 +28,23 @@ namespace asp_presentacion.Pages.Ventanas
         [BindProperty] public Productos? Actual { get; set; }
         [BindProperty] public Productos? Filtro { get; set; }
         [BindProperty] public List<Productos>? Lista { get; set; }
-        public virtual void OnGet() { OnPostBtRefrescar(); }
+        public bool EsAdmin { get; set; }
+        public bool EsEmpleado { get; set; }
+        public virtual void OnGet() 
+        {
+            var usuario = HttpContext.Session.GetString("Usuario");
+
+            if (usuario == "admin")
+            {
+                EsAdmin = true;
+            }
+            if (usuario == "empleado")
+            {
+                EsEmpleado = true;
+            }
+
+            OnPostBtRefrescar(); 
+        }
 
         public void OnPostBtRefrescar()
         {
